@@ -1,8 +1,9 @@
 package cn.e3mall.dao;
 
+import java.util.List;
+
 import cn.e3mall.pojo.TbItem;
 import cn.e3mall.pojo.TbItemExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface TbItemMapper {

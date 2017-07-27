@@ -1,8 +1,9 @@
 package cn.e3mall.dao;
 
+import java.util.List;
+
 import cn.e3mall.pojo.TbContentCategory;
 import cn.e3mall.pojo.TbContentCategoryExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface TbContentCategoryMapper {
