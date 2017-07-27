@@ -1,8 +1,8 @@
-package cn.e3mall.dao;
+package cn.e3mall.pojo;
 
 import java.util.Date;
 
-public class TbContentCategory {
+public class TbItemCat {
     private Long id;
 
     private Long parentId;

@@ -1,4 +1,4 @@
-package cn.e3mall.dao;
+package cn.e3mall.pojo;
 
 public class TbOrderItem {
     private String id;
