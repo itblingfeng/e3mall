@@ -1,5 +1,6 @@
 package cn.e3mall.controller;
 
+import cm.e3mall.utils.EasyUiResult;
 import cn.e3mall.pojo.TbItem;
 import cn.e3mall.service.Tb_ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,5 +16,10 @@ public class ItemController {
     @RequestMapping(value="/item/{itemid}")
     public @ResponseBody TbItem select(@PathVariable Long itemid){
         return itemService.selectItemById(itemid);
+    }
+    @RequestMapping(value="/item/list")
+    public @ResponseBody
+    EasyUiResult listItem(Integer page,Integer rows){
+
     }
 }

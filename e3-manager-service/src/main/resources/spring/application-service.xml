@@ -14,5 +14,5 @@ http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubb
     <!--dubbo端口-->
     <dubbo:protocol name="dubbo" port="21880"/>
     <!--发布的服务接口-->
-    <dubbo:service interface="cn.e3mall.service.Tb_ItemService" ref="tb_ItemServiceImpl"/>
+    <dubbo:service interface="cn.e3mall.service.Tb_ItemService" ref="tb_ItemServiceImpl" timeout="1000000"/>
 </beans>

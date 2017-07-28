@@ -11,9 +11,11 @@ http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubb
     <context:component-scan base-package="cn.e3mall.controller"/>
     <mvc:annotation-driven/>
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="suffix" value="/WEB-INF/jsp/"/>
-        <property name="prefix" value=".jsp"/>
+        <property name="prefix" value="/WEB-INF/jsp/"/>
+        <property name="suffix" value=".jsp"/>
     </bean>
+    <mvc:resources mapping="/css/**" location="/css/"/>
+    <mvc:resources mapping="/js/**" location="/js/"/>
     <!--项目名-->
     <dubbo:application name="e3-manager-web"/>
     <!--注册中心的ip-->
