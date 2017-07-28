@@ -17,5 +17,16 @@
 </modules>
     <artifactId>e3-manager</artifactId>
     <packaging>pom</packaging>
-
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <configuration>
+                    <path>/</path>
+                    <port>8080</port>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
