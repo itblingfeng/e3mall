@@ -9,7 +9,12 @@
         <relativePath>../e3-parent/pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-
+<modules>
+    <module>../e3-manager-service</module>
+    <module>../e3-manager-dao</module>
+    <module>../e3-manager-interface</module>
+    <module>../e3-manager-pojo</module>
+</modules>
     <artifactId>e3-manager</artifactId>
     <packaging>pom</packaging>
 
