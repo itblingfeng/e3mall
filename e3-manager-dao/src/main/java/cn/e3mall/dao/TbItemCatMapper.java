@@ -4,6 +4,7 @@ import java.util.List;
 
 import cn.e3mall.pojo.TbItemCat;
 import cn.e3mall.pojo.TbItemCatExample;
+import cn.e3mall.pojo.TbItemExample;
 import org.apache.ibatis.annotations.Param;
 
 public interface TbItemCatMapper {

@@ -19,7 +19,8 @@ http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubb
     <!--项目名-->
     <dubbo:application name="e3-manager-web"/>
     <!--注册中心的ip-->
-    <dubbo:registry protocol="zookeeper" address="192.168.159.128:2181"/>
+    <dubbo:registry protocol="zookeeper" address="192.168.159.129:2181"/>
     <!--引用服务-->
-<dubbo:reference interface="cn.e3mall.service.ItemService" id="itemService"/>
+    <dubbo:reference interface="cn.e3mall.service.ItemService" id="itemService"/>
+    <dubbo:reference interface="cn.e3mall.service.ItemCatService" id="itemCatService"/>
 </beans>

@@ -10,9 +10,10 @@ http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubb
 <!--项目名-->
     <dubbo:application name="e3-manager"/>
     <!--注册中心-->
-    <dubbo:registry protocol="zookeeper" address="192.168.159.128:2181"/>
+    <dubbo:registry protocol="zookeeper" address="192.168.159.129:2181"/>
     <!--dubbo端口-->
     <dubbo:protocol name="dubbo" port="21880"/>
     <!--发布的服务接口-->
     <dubbo:service interface="cn.e3mall.service.ItemService" ref="itemServiceImpl" timeout="1000000"/>
+    <dubbo:service interface="cn.e3mall.service.ItemCatService" ref="itemCatServiceImpl"/>
 </beans>
