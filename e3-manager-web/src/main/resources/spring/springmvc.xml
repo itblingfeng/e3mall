@@ -21,5 +21,5 @@ http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubb
     <!--注册中心的ip-->
     <dubbo:registry protocol="zookeeper" address="192.168.159.128:2181"/>
     <!--引用服务-->
-<dubbo:reference interface="cn.e3mall.service.Tb_ItemService" id="tb_itemService"/>
+<dubbo:reference interface="cn.e3mall.service.ItemService" id="itemService"/>
 </beans>
