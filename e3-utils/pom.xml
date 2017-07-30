@@ -13,6 +13,12 @@
     <artifactId>e3-utils</artifactId>
     <packaging>jar</packaging>
 <dependencies>
+    <!--fast-dfs-->
+    <dependency>
+        <groupId>fastdfs_client</groupId>
+        <artifactId>fastdfs_client</artifactId>
+        <version>1.25</version>
+    </dependency>
     <!-- 时间操作组件 -->
     <dependency>
         <groupId>joda-time</groupId>

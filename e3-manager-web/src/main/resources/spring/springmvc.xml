@@ -8,18 +8,23 @@
 http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
 http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
 http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+    <context:property-placeholder location="classpath:resource.properties"/>
     <context:component-scan base-package="cn.e3mall.controller"/>
     <mvc:annotation-driven/>
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/jsp/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
+    <bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver" id="multipartResolver">
+        <property name="defaultEncoding" value="UTF-8"/>
+        <property name="maxUploadSize" value="512000000"/>
+    </bean>
     <mvc:resources mapping="/css/**" location="/css/"/>
     <mvc:resources mapping="/js/**" location="/js/"/>
     <!--项目名-->
     <dubbo:application name="e3-manager-web"/>
     <!--注册中心的ip-->
-    <dubbo:registry protocol="zookeeper" address="192.168.159.129:2181"/>
+    <dubbo:registry protocol="zookeeper" address="192.168.25.111:2181"/>
     <!--引用服务-->
     <dubbo:reference interface="cn.e3mall.service.ItemService" id="itemService"/>
     <dubbo:reference interface="cn.e3mall.service.ItemCatService" id="itemCatService"/>
