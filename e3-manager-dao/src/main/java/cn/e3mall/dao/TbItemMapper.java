@@ -28,4 +28,7 @@ public interface TbItemMapper {
     int updateByPrimaryKeySelective(TbItem record);
 
     int updateByPrimaryKey(TbItem record);
+    void instockItems(Long ids[]);
+    void reshelfItems(Long ids[]);
+    void deleteItems(Long ids[]);
 }

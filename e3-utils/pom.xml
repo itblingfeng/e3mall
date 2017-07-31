@@ -19,6 +19,11 @@
         <artifactId>fastdfs_client</artifactId>
         <version>1.25</version>
     </dependency>
+    <dependency>
+        <groupId>cn.e3mall</groupId>
+        <artifactId>e3-manager-pojo</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </dependency>
     <!-- 时间操作组件 -->
     <dependency>
         <groupId>joda-time</groupId>

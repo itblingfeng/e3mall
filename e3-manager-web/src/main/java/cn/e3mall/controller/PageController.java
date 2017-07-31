@@ -13,4 +13,8 @@ public class PageController {
     public String showPage(String page){
         return page;
     }
+    @RequestMapping(value="/rest/page/item-edit")
+    public String showItemEdit(){
+        return "item-edit";
+    }
 }

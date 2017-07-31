@@ -1,6 +1,7 @@
 package cn.e3mall.controller;
 
 import cn.e3mall.utils.FastDFSClient;
+import cn.e3mall.utils.JsonUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,7 +17,7 @@ public class PicController {
     private String IMAGE_SERVER;
     @RequestMapping("/pic/upload")
     public @ResponseBody
-    Map PicUpload(MultipartFile uploadFile) {
+    String PicUpload(MultipartFile uploadFile) {
         Map resultMap = new HashMap();
         try {
             FastDFSClient client = new FastDFSClient("classpath:conf/client.conf");
@@ -25,11 +26,11 @@ public class PicController {
 
             resultMap.put("error",0);
             resultMap.put("url",url);
-            return resultMap;
+            return JsonUtils.objectToJson(resultMap);
         } catch (Exception e) {
             resultMap.put("error",1);
             resultMap.put("message",e);
-            return resultMap;
+            return JsonUtils.objectToJson(resultMap);
         }
     }
 }

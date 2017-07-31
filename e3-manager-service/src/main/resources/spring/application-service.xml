@@ -16,4 +16,5 @@ http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubb
     <!--发布的服务接口-->
     <dubbo:service interface="cn.e3mall.service.ItemService" ref="itemServiceImpl" timeout="1000000"/>
     <dubbo:service interface="cn.e3mall.service.ItemCatService" ref="itemCatServiceImpl"/>
+    <dubbo:service interface="cn.e3mall.service.ItemDescService" ref="itemDescServiceImpl"/>
 </beans>

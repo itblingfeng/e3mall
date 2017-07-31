@@ -302,4 +302,28 @@
       updated = #{updated,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=BIGINT}
   </update>
+  <update id="instockItems" parameterType="Long">
+    update tb_item
+    set status = 2
+    where id in
+    <foreach collection="array" open="(" close=")" separator="," item="item">
+      #{item}
+    </foreach>
+  </update>
+  <update id="reshelfItems" parameterType="Long">
+    update tb_item
+    set status = 1
+    where id in
+    <foreach collection="array" open="(" close=")" separator="," item="item">
+      #{item}
+    </foreach>
+  </update>
+  <update id="deleteItems" parameterType="Long">
+    update tb_item
+    set status = 3
+    where id in
+    <foreach collection="array" open="(" close=")" separator="," item="item">
+      #{item}
+    </foreach>
+  </update>
 </mapper>
