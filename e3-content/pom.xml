@@ -9,16 +9,12 @@
         <relativePath>../e3-parent/pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-
-    <artifactId>e3-context</artifactId>
+    <modules>
+        <module>../e3-content-service</module>
+        <module>../e3-content-interface</module>
+    </modules>
+    <artifactId>e3-content</artifactId>
     <packaging>pom</packaging>
-    <dependencies>
-        <dependency>
-            <groupId>cn.e3mall</groupId>
-            <artifactId>e3-utils</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-    </dependencies>
     <build>
         <plugins>
             <plugin>
@@ -26,10 +22,11 @@
                 <artifactId>tomcat7-maven-plugin</artifactId>
                 <configuration>
                     <path>/</path>
-                    <port>8083</port>
+                     <port>8082</port>
                 </configuration>
             </plugin>
         </plugins>
     </build>
+
 
 </project>
