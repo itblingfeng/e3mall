@@ -8,6 +8,7 @@
 http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
 http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
 http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+    <context:property-placeholder location="classpath:resource.properties"/>
 <context:component-scan base-package="cn.e3mall.portal.controller"/>
     <mvc:annotation-driven/>
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -16,5 +17,6 @@ http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubb
     </bean>
     <dubbo:application name="e3-portal-web"/>
     <dubbo:registry protocol="zookeeper" address="192.168.25.111:2181"/>
+    <dubbo:reference interface="cn.e3mall.content.service.ContentService" id="contentService"/>
 
 </beans>

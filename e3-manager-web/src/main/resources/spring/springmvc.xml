@@ -30,4 +30,5 @@ http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubb
     <dubbo:reference interface="cn.e3mall.service.ItemCatService" id="itemCatService"/>
     <dubbo:reference interface="cn.e3mall.service.ItemDescService" id="itemDescService"/>
     <dubbo:reference interface="cn.e3mall.content.service.ContentCatService" id="contentCatService"/>
+    <dubbo:reference interface="cn.e3mall.content.service.ContentService" id="contentService" />
 </beans>

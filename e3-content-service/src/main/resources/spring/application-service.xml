@@ -15,4 +15,5 @@ http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubb
     <dubbo:protocol name="dubbo" port="21881"/>
     <!--发布的服务接口-->
     <dubbo:service interface="cn.e3mall.content.service.ContentCatService" ref="contentCatServiceImpl"/>
+    <dubbo:service interface="cn.e3mall.content.service.ContentService" ref="contentServiceImpl" timeout="10000000"/>
 </beans>
