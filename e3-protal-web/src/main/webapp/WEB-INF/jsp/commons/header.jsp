@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <!--shortcut start-->
 <jsp:include page="shortcut.jsp" />
+<%@ page isELIgnored="false" %>
 <!--shortcut end-->
 <div id="header">
   <div class="header_inner">

@@ -6,13 +6,13 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
 http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
-    <context:component-scan base-package="cn.e3mall.search.service"/>
+    <context:component-scan base-package="cn.e3mall.search.service.impl"/>
 <!--项目名-->
-    <dubbo:application name="e3-manager"/>
+    <dubbo:application name="e3-search"/>
     <!--注册中心-->
     <dubbo:registry protocol="zookeeper" address="192.168.25.111:2181"/>
     <!--dubbo端口-->
-    <dubbo:protocol name="dubbo" port="21880"/>
+    <dubbo:protocol name="dubbo" port="21882"/>
     <!--发布的服务接口-->
-
+    <dubbo:service interface="cn.e3mall.search.service.SearchItemService" ref="searchItemServiceImpl" timeout="1000000"/>
 </beans>

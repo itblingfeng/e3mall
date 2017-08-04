@@ -9,7 +9,10 @@
         <relativePath>../e3-parent/pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-
+    <modules>
+        <module>../e3-search-interface</module>
+        <module>../e3-search-service</module>
+    </modules>
     <artifactId>e3-search</artifactId>
     <packaging>pom</packaging>
     <dependencies>
@@ -19,6 +22,17 @@
             <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
-
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <configuration>
+                    <path>/</path>
+                    <port>8084</port>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
