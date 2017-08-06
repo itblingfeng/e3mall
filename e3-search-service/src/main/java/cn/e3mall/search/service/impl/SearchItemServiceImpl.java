@@ -53,7 +53,8 @@ public class SearchItemServiceImpl implements SearchItemService{
         query.setRows(rows);
         /*开启高亮*/
         query.setHighlight(true);
-        query.setHighlightSimplePre("<em style='color:red'>");
+        query.addHighlightField("item_title");
+        query.setHighlightSimplePre("<em style=\"color:red\">");
         query.setHighlightSimplePost("</em>");
         SearchResult searchResult = searchItemDao.searchItems(query);
         Long recourdCount = searchResult.getRecourdCount();

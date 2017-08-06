@@ -8,4 +8,12 @@
         on i.cid = c.id
         where i.status = 1
     </select>
+    <select id="getItemById" parameterType="Long" resultType="cn.e3mall.utils.SearchItem">
+          select i.id,i.title,i.sell_point,i.price,i.image,c.name
+        from tb_item i
+        left join tb_item_cat c
+        on i.cid = c.id
+        where i.status = 1
+        and i.id = #{id}
+    </select>
 </mapper>
