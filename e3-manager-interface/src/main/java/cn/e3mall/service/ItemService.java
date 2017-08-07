@@ -11,4 +11,5 @@ public interface ItemService {
      E3Result deleteItems(Long ids[]);
      E3Result instockItems(Long ids[]);
      E3Result reshelfItems(Long ids[]);
+     TbItem getItemById(Long id);
 }

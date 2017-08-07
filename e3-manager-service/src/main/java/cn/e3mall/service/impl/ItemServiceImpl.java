@@ -3,14 +3,13 @@ package cn.e3mall.service.impl;
 import cn.e3mall.dao.TbItemDescMapper;
 import cn.e3mall.pojo.TbItemDesc;
 import cn.e3mall.service.ItemService;
-import cn.e3mall.utils.E3Result;
-import cn.e3mall.utils.EasyUiResult;
+import cn.e3mall.utils.*;
 import cn.e3mall.dao.TbItemMapper;
 import cn.e3mall.pojo.TbItem;
 import cn.e3mall.pojo.TbItemExample;
-import cn.e3mall.utils.IDUtils;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.jms.core.MessageCreator;
@@ -31,6 +30,8 @@ public class ItemServiceImpl implements ItemService{
     private JmsTemplate jmsTemplate;
     @Resource
     private Destination topicDestination;
+    @Autowired
+    private JedisClient jedisClientCluster;
    public EasyUiResult listItem(Integer page, Integer rows){
         PageHelper.startPage(page,rows);
         TbItemExample example = new TbItemExample();
@@ -85,6 +86,28 @@ public class ItemServiceImpl implements ItemService{
     public E3Result reshelfItems(Long[] ids) {
        itemMapper.reshelfItems(ids);
         return E3Result.ok();
+    }
+
+    @Override
+    public TbItem getItemById(Long id) {
+       try{
+           String json = jedisClientCluster.get("Item_Base:" + id);
+           if(StringUtils.isNotBlank(json)){
+               TbItem tbItem = JsonUtils.jsonToPojo(json, TbItem.class);
+               jedisClientCluster.expire("Item_Base:"+id,3600);
+               return tbItem;
+           }
+       }catch (Exception e){
+           e.printStackTrace();
+       }
+        TbItem tbItem = itemMapper.selectByPrimaryKey(id);
+       try{
+           jedisClientCluster.set("Item_Base:"+id,JsonUtils.objectToJson(tbItem));
+           jedisClientCluster.expire("Item_Base:"+id,3600);
+       }catch(Exception e){
+           e.printStackTrace();
+       }
+        return tbItem;
     }
 
 }
