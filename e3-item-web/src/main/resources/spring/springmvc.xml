@@ -20,6 +20,10 @@ http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubb
         <property name="prefix" value="/WEB-INF/jsp/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
+   <bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer" id="freeMarkerConfigurer">
+       <property name="templateLoaderPath" value="/WEB-INF/ftl/"/>
+       <property name="defaultEncoding" value="UTF-8"/>
+   </bean>
     <!--项目名-->
     <dubbo:application name="e3-item-web"/>
     <!--注册中心的ip-->

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+     <bean class="org.apache.activemq.ActiveMQConnectionFactory" id="targetConnectionFactory">
+          <property name="brokerURL" value="tcp://192.168.25.116:61616"/>
+     </bean>
+     <bean class="org.springframework.jms.connection.SingleConnectionFactory" id="connectionFactory">
+          <property name="targetConnectionFactory" ref="targetConnectionFactory"/>
+     </bean>
+     <bean class="org.springframework.jms.core.JmsTemplate" id="jmsTemplate">
+          <property name="connectionFactory" ref="connectionFactory"/>
+     </bean>
+     <bean class="org.apache.activemq.command.ActiveMQTopic" id="topicDestination">
+          <constructor-arg>
+               <value>addItemTopic</value>
+          </constructor-arg>
+     </bean>
+     <bean class="cn.e3mall.item.listener.addItemListener" id="addItemListener"/>
+     <bean class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+          <property name="destination" ref="topicDestination"/>
+          <property name="messageListener" ref="addItemListener"/>
+          <property name="connectionFactory" ref="connectionFactory"/>
+     </bean>
+
+</beans>
