@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 public class LoginController {
     @Autowired
     private LoginService loginService;
-    @RequestMapping(value="/page/login")
+    @RequestMapping(value={"/page/login","/login"})
     public String showLogin(){
         return "login";
     }
@@ -24,9 +24,12 @@ public class LoginController {
     public @ResponseBody
     E3Result login(String username, String password, HttpServletRequest request, HttpServletResponse response){
         E3Result e3Result = loginService.login(username, password);
-        String token = e3Result.getData().toString();
+        /*如果登录成功*/
+        if(e3Result.getStatus()==200) {
+            String token = e3Result.getData().toString();
         /*将token写入cookie*/
-        CookieUtils.setCookie(request,response,"token",token);
+            CookieUtils.setCookie(request, response, "token", token);
+        }
         return e3Result;
     }
 
