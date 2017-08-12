@@ -17,7 +17,8 @@ public class LoginController {
     @Autowired
     private LoginService loginService;
     @RequestMapping(value={"/page/login","/login"})
-    public String showLogin(){
+    public String showLogin(String redirect,HttpServletRequest request){
+        request.setAttribute("redirect",redirect);
         return "login";
     }
     @RequestMapping("/user/login")

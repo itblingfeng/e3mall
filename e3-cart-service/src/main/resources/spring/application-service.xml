@@ -7,12 +7,12 @@
 http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
 http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
     <context:component-scan base-package="cn.e3mall.cart.service"/>
-<!--项目名-->
+    <!--项目名-->
     <dubbo:application name="e3-cart"/>
     <!--注册中心-->
     <dubbo:registry protocol="zookeeper" address="192.168.25.111:2181"/>
     <!--dubbo端口-->
-    <dubbo:protocol name="dubbo" port="21884"/>
+    <dubbo:protocol name="dubbo" port="21885"/>
     <!--发布的服务接口-->
-
+   <dubbo:service interface="cn.e3mall.cart.service.CartService" ref="cartServiceImpl"/>
 </beans>

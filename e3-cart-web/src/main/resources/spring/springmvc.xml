@@ -16,6 +16,12 @@ http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubb
     <context:component-scan base-package="cn.e3mall.cart.controller"/>
     <!--注解驱动-->
     <mvc:annotation-driven/>
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="cn.e3mall.cart.interceptor.LoginInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/jsp/"/>
         <property name="suffix" value=".jsp"/>
@@ -26,5 +32,6 @@ http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubb
     <dubbo:registry protocol="zookeeper" address="192.168.25.111:2181"/>
     <!--引用服务-->
     <dubbo:reference interface="cn.e3mall.service.ItemService" id="itemService"/>
-
+   <dubbo:reference interface="cn.e3mall.cart.service.CartService" id="cartService"/>
+    <dubbo:reference interface="cn.e3mall.sso.service.TokenService" id="tokenService"/>
 </beans>
